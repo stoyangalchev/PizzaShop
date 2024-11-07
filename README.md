@@ -1,2 +1,2 @@
-# PizzaShop
-App for Pizza React ,Redux ,MongoDB
+# Pizza-Shop
+ Delicious app
