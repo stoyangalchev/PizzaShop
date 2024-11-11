@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
 import "aos/dist/aos.css";
 
 const SmallMenu = () => {
@@ -8,6 +9,17 @@ const SmallMenu = () => {
     const handleTabClick = (tabId) => {
         setActiveTab(tabId);
     };
+
+    useEffect(() => {
+        // Initialize AOS only once
+        if (!AOS.initialized) {
+            AOS.init({
+                duration: 800,
+                easing: "slide",
+            });
+            AOS.initialized = true;
+        }
+    }, []);
 
     return (
         <section className="ftco-menu">
@@ -100,10 +112,10 @@ const SmallMenu = () => {
                                                             <Link to="#">Italian Pizza</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Classic Italian pizza: wood-fired, rich tomato sauce, creamy mozzarella.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$11.90</span>
+                                                            <span>$12.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -122,10 +134,10 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Greek Pizza</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Greek pizza: thick, chewy crust, tangy feta, Mediterranean herbs, vibrant toppings.
                                                         </p>
                                                         <p className="price">
                                                             <span>$13.90</span>
@@ -147,13 +159,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Caucasian Pizza</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Caucasian pizza: soft, airy crust, rich cheese blend, savory meat toppings.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$14.90</span>
+                                                            <span>$11.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -185,10 +197,10 @@ const SmallMenu = () => {
                                                             <Link to="#">Lemonade Juice</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Refreshing lemonade juice, made from freshly squeezed lemons, perfect for quenching your thirst on a sunny day.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$11.90</span>
+                                                            <span>$8.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -207,13 +219,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Pineapple Juice</Link>
+                                                            <Link to="#">Raspberry drink</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Vibrant raspberry drink, sweet and slightly tart, bursting with berry flavor, perfect for refreshing moments.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$15.90</span>
+                                                            <span>$7.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -232,13 +244,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Soda Drinks</Link>
+                                                            <Link to="#">Cocktail</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Refreshing cocktail blend of tropical fruits and spirits, vibrant, smooth, and perfect for unwinding moments.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$10.90</span>
+                                                            <span>$8.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -267,13 +279,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Small Burger</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Mini burger with soft bun, fresh veggies, melted cheese, juicy and full of flavor.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$11.90</span>
+                                                            <span>$8.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -292,13 +304,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Middle Burger</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Tasty mid-size burger with soft bun, juicy beef, crisp veggies, rich cheese—a perfect bite.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$13.90</span>
+                                                            <span>$10.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -317,13 +329,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Big Burger</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Large burger with thick patty, fresh veggies, melted cheese, all in a soft, toasted bun.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$15.90</span>
+                                                            <span>$2.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -352,13 +364,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Italiniti</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Delicious pasta with rich sauce, fresh ingredients, and perfect seasoning.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$13.90</span>
+                                                            <span>$12.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -377,13 +389,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Italincia</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Savory pasta with creamy sauce, tender noodles, and aromatic herbs.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$11.90</span>
+                                                            <span>$10.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
@@ -402,13 +414,13 @@ const SmallMenu = () => {
                                                     ></Link>
                                                     <div className="text">
                                                         <h3>
-                                                            <Link to="#">Italian Pizza</Link>
+                                                            <Link to="#">Italiochela</Link>
                                                         </h3>
                                                         <p>
-                                                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+                                                            Flavorful pasta served with a zesty sauce and savory toppings.
                                                         </p>
                                                         <p className="price">
-                                                            <span>$14.90</span>
+                                                            <span>$11.90</span>
                                                         </p>
                                                         <p>
                                                             <Link to="#" className="btn btn-white btn-outline-white">
