@@ -633,7 +633,9 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  z-index: 1
+  z-index: 1;
+  
+
 }
 
 .row {
@@ -12877,6 +12879,16 @@ textarea.form-control {
   width: 1px;
   background-color: #ccc;
 }
+
+.nav-link {
+  color: white;
+}
+
+.nav-link.active {
+  color: #fac564;
+  
+}
+
 
 @-webkit-keyframes loader-rotate {
   100% {
