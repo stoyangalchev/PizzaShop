@@ -626,6 +626,37 @@ pre code {
   }
 }
 
+.container2{
+width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container2 {
+    max-width: 940px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container2 {
+    max-width: 1020px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container2 {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container2 {
+    max-width: 9140px;
+  }
+}
+
 .container-fluid {
   position: relative;
   width: 100%;
@@ -12889,6 +12920,60 @@ textarea.form-control {
   
 }
 
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.quantity-controls button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px;
+}
+
+.quantity-controls .quantity {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 10px;
+}
+
+.menu-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu-img {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.text {
+  width: 100%;
+}
+.badge {
+  position: relative;
+  top: -10px;
+  right: -10px;
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
+}
 
 @-webkit-keyframes loader-rotate {
   100% {
