@@ -626,13 +626,14 @@ pre code {
   }
 }
 
-.container2{
-width: 100%;
+.container2 {
+  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
+
 @media (min-width: 576px) {
   .container2 {
     max-width: 940px;
@@ -665,7 +666,7 @@ width: 100%;
   margin-right: auto;
   margin-left: auto;
   z-index: 1;
-  
+
 
 }
 
@@ -11284,7 +11285,6 @@ h5,
 }
 
 .services .icon span {
-  font-size: 60px;
   color: #5c3d03;
   z-index: 1;
 }
@@ -11301,6 +11301,7 @@ h5,
 }
 
 .services:hover .icon span {
+  size: 1em;
   color: #fff;
 }
 
@@ -12917,7 +12918,7 @@ textarea.form-control {
 
 .nav-link.active {
   color: #fac564;
-  
+
 }
 
 .quantity-controls {
@@ -12964,6 +12965,7 @@ textarea.form-control {
 .text {
   width: 100%;
 }
+
 .badge {
   position: relative;
   top: -10px;
@@ -13021,4 +13023,15 @@ textarea.form-control {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px;
   }
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  /* Adjust this for larger or smaller icons */
+  color: #2f1231;
+  /* Optional: Change the color of the icon */
 }
