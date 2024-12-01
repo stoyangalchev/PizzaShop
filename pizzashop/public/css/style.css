@@ -13035,3 +13035,20 @@ textarea.form-control {
   color: #2f1231;
   /* Optional: Change the color of the icon */
 }
+
+/* styles.css */
+.bread {
+  font-size: 16em;
+}
+
+@media (max-width: 768px) {
+  .bread {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .bread {
+    font-size: 3rem;
+  }
+}
