@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import pizzaRoute from "./routes/pizzaRoute.js";
 import contactRoute from "./routes/contactRoute.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 dotenv.config();
 
@@ -30,6 +31,7 @@ mongoose
 // Use routes
 app.use("/api/pizzas", pizzaRoute);
 app.use("/api/contact", contactRoute);
+app.use("/api/admin", adminRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
