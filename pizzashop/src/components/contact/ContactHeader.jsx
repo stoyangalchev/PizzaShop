@@ -31,7 +31,7 @@ const ContactHeader = () => {
 
         return () => {
             
-            // Destroy Owl Carousel instance to prevent issues on reinitialization
+
             if ($ && $.fn.owlCarousel) {
                 $('.home-slider').trigger('destroy.owl.carousel');
             }
