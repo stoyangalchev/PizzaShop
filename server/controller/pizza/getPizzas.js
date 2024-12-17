@@ -2,8 +2,9 @@ import Pizza from "../../models/pizzaModel.js";
 
 export const getPizzas = async (req, res) => {
   try {
-    const pizzas = await Pizza.find({});
+    const pizzas = await Pizza.find();
     res.send(pizzas);
+
   } catch (error) {
     res.status(400).json(error);
   }
