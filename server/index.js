@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import bodyParser from "body-parser";
 import cors from "cors";
 import pizzaRoute from "./routes/pizzaRoute.js";
 import contactRoute from "./routes/contactRoute.js";
@@ -10,6 +11,10 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Increase payload size limit
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 // Middleware
 app.use(
