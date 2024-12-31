@@ -13,6 +13,7 @@ import Images from './components/home/Images';
 import Status from './components/home/Status';
 import SmallMenu from './components/menu/SmallMenu';
 import Blog from './components/home/Blog';
+import BlogDetails from './components/blog/BlogDetails';
 import ContactUs from './components/home/ContactUs';
 import AboutUs from './components/about/AboutUs';
 import OurMenu from './components/menu/OurMenu';
@@ -27,7 +28,7 @@ import Cart from './components/cart/Cart'
 import ErrorBoundary from './components/shared/ErrorBoundary';
 import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
-
+import AddPizza from './admin/AddPizza';
 function App() {
   useEffect(() => {
     AOS.init({
@@ -90,6 +91,8 @@ function App() {
             </>
           } />
 
+
+
           <Route path="/about" element={
             <>
               <AboutHeader />
@@ -113,8 +116,10 @@ function App() {
               <AboutUs />
             </>
           } />
+
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/dashboard/addpizza" element={<AddPizza />} />
 
         </Routes>
       </ErrorBoundary>

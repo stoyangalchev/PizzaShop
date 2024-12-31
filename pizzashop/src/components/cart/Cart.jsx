@@ -11,7 +11,7 @@ const Cart = () => {
 
     const handlePurchase = () => {
         const purchasedItems = cart.map(item => ({
-            id: item.id,
+            _id: item._id,
             name: item.name,
             quantity: item.quantity,
             price: item.price,
@@ -26,16 +26,16 @@ const Cart = () => {
         alert(`Purchased ${cart.length} pizza(s) for a total of $${totalAmount.toFixed(2)}`);
     };
 
-    const handleIncrease = (id) => {
-        dispatch(increaseQuantity(id));
+    const handleIncrease = (_id) => {
+        dispatch(increaseQuantity(_id));
     };
 
-    const handleDecrease = (id) => {
-        dispatch(decreaseQuantity(id));
+    const handleDecrease = (_id) => {
+        dispatch(decreaseQuantity(_id));
     };
 
-    const handleRemove = (id) => {
-        dispatch(removeFromCart(id));
+    const handleRemove = (_id) => {
+        dispatch(removeFromCart(_id));
     };
 
     const totalPrice = cart.reduce((total, item) => {
@@ -65,10 +65,10 @@ const Cart = () => {
                                     </div>
                                 </div>
                                 <div className="quantity-controls d-flex align-items-center" style={{ marginLeft: '20px' }}>
-                                    <button className="btn btn-outline-secondary" onClick={() => handleDecrease(pizza.id)}>-</button>
+                                    <button className="btn btn-outline-secondary" onClick={() => handleDecrease(pizza._id)}>-</button>
                                     <span className="quantity mx-2">{pizza.quantity}</span>
-                                    <button className="btn btn-outline-secondary" onClick={() => handleIncrease(pizza.id)}>+</button>
-                                    <button className="btn btn-outline-danger ml-3" onClick={() => handleRemove(pizza.id)}>
+                                    <button className="btn btn-outline-secondary" onClick={() => handleIncrease(pizza._id)}>+</button>
+                                    <button className="btn btn-outline-danger ml-3" onClick={() => handleRemove(pizza._id)}>
                                         <i className="fas fa-trash"></i>
                                     </button>
                                 </div>

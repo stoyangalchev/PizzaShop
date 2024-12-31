@@ -1,7 +1,12 @@
 import React from 'react';
 
+const PizzaModal = React.memo(({ pizza, closeModal }) => {
+    if (!pizza || !pizza.name) {
+        return null; // Return null if pizza is not defined or does not have the name property
+    }
 
-const PizzaModal = ({ pizza, closeModal }) => {
+    console.log(pizza); // Log the pizza object for debugging
+
     return (
         <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -19,6 +24,6 @@ const PizzaModal = ({ pizza, closeModal }) => {
             </div>
         </div>
     );
-};
+});
 
 export default PizzaModal;

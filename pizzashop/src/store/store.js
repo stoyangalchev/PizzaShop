@@ -1,12 +1,16 @@
-import sampleReducer from "../reducers/sampleReducer"; // Correct the import statement
 import { configureStore } from "@reduxjs/toolkit";
-import {thunk} from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { contactReducer } from "../reducers/contactReducers";
+import pizzaReducer from "../reducers/pizzaReducers";
+import cartReducer from "../reducers/cartReducers";
 
 const store = configureStore({
-  reducer: sampleReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
-  devTools: composeWithDevTools(),
+  reducer: {
+    contact: contactReducer,
+    pizza: pizzaReducer,
+    cart: cartReducer,
+  },
+  devTools: process.env.NODE_ENV !== "production",
 });
+console.log(store.getState());
 
 export default store;

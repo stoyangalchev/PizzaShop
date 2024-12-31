@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { setPizzas, setDrinks, setBurgers, setPastas } from '../../actions/pizzaActions';
-import { addToCart } from '../../actions/cartActions'
+import { addToCart } from '../../actions/cartActions';
+import PizzaModal from './PizzaModal'; // Import the PizzaModal component
 
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const SmallMenu = () => {
     const [activeTab, setActiveTab] = useState("v-pills-1");
+    const [selectedItem, setSelectedItem] = useState(null); // State to manage selected item for modal
     const dispatch = useDispatch();
     const pizzas = useSelector((state) => state.pizza.pizzas);
     const drinks = useSelector((state) => state.pizza.drinks);
@@ -22,7 +24,7 @@ const SmallMenu = () => {
         dispatch(setPastas());
     }, [dispatch]);
 
-    const handleOrderPizza = (event, item) => {
+    const handleOrderItem = (event, item) => {
         event.preventDefault();
         dispatch(addToCart(item));
     };
@@ -31,6 +33,13 @@ const SmallMenu = () => {
         event.preventDefault();
         setActiveTab(tab);
     };
+
+    const openModal = (item, event) => {
+        event.preventDefault();
+        setSelectedItem(item);
+    };
+
+    const closeModal = () => setSelectedItem(null);
 
     useEffect(() => {
         if (!AOS.initialized) {
@@ -66,12 +75,12 @@ const SmallMenu = () => {
                                                     <div className="menu-wrap">
                                                         <Link to="#" className="menu-img img mb-4" style={{
                                                             backgroundImage: `url(${pizza.image})`, animation: 'zoom 5s infinite'
-                                                        }}></Link>
+                                                        }} onClick={(event) => openModal(pizza, event)}></Link>
                                                         <div className="text">
                                                             <h3><Link to="#">{pizza.name}</Link></h3>
                                                             <p>{pizza.description}</p>
                                                             <p className="price"><span>${pizza.price.toFixed(2)}</span></p>
-                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderPizza(event, pizza)}>Add to cart</Link></p>
+                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderItem(event, pizza)}>Add to cart</Link></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -83,12 +92,12 @@ const SmallMenu = () => {
                                             {drinks.map((drink) => (
                                                 <div className="col-md-4 text-center" key={drink._id}>
                                                     <div className="menu-wrap">
-                                                        <Link to="#" className="menu-img img mb-4" style={{ backgroundImage: `url(${drink.image})`, animation: 'zoom 5s infinite' }}></Link>
+                                                        <Link to="#" className="menu-img img mb-4" style={{ backgroundImage: `url(${drink.image})`, animation: 'zoom 5s infinite' }} onClick={(event) => openModal(drink, event)}></Link>
                                                         <div className="text">
                                                             <h3><Link to="#">{drink.name}</Link></h3>
                                                             <p>{drink.description}</p>
                                                             <p className="price"><span>${drink.price.toFixed(2)}</span></p>
-                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderPizza(event, drink)}>Add to cart</Link></p>
+                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderItem(event, drink)}>Add to cart</Link></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -100,12 +109,12 @@ const SmallMenu = () => {
                                             {burgers.map((burger) => (
                                                 <div className="col-md-4 text-center" key={burger._id}>
                                                     <div className="menu-wrap">
-                                                        <Link to="#" className="menu-img img mb-4" style={{ backgroundImage: `url(${burger.image})`, animation: 'zoom 5s infinite' }}></Link>
+                                                        <Link to="#" className="menu-img img mb-4" style={{ backgroundImage: `url(${burger.image})`, animation: 'zoom 5s infinite' }} onClick={(event) => openModal(burger, event)}></Link>
                                                         <div className="text">
                                                             <h3><Link to="#">{burger.name}</Link></h3>
                                                             <p>{burger.description}</p>
                                                             <p className="price"><span>${burger.price.toFixed(2)}</span></p>
-                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderPizza(event, burger)}>Add to cart</Link></p>
+                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderItem(event, burger)}>Add to cart</Link></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -117,12 +126,12 @@ const SmallMenu = () => {
                                             {pastas.map((pasta) => (
                                                 <div className="col-md-4 text-center" key={pasta._id}>
                                                     <div className="menu-wrap">
-                                                        <Link to="#" className="menu-img img mb-4" style={{ backgroundImage: `url(${pasta.image})`, animation: 'zoom 5s infinite' }}></Link>
+                                                        <Link to="#" className="menu-img img mb-4" style={{ backgroundImage: `url(${pasta.image})`, animation: 'zoom 5s infinite' }} onClick={(event) => openModal(pasta, event)}></Link>
                                                         <div className="text">
                                                             <h3><Link to="#">{pasta.name}</Link></h3>
                                                             <p>{pasta.description}</p>
                                                             <p className="price"><span>${pasta.price.toFixed(2)}</span></p>
-                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderPizza(event, pasta)}>Add to cart</Link></p>
+                                                            <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderItem(event, pasta)}>Add to cart</Link></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,6 +144,7 @@ const SmallMenu = () => {
                     </div>
                 </div>
             </div>
+            {selectedItem && <PizzaModal pizza={selectedItem} closeModal={closeModal} />}
         </section>
     );
 };

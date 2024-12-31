@@ -230,6 +230,7 @@ img {
   border-style: none;
 }
 
+
 svg:not(:root) {
   overflow: hidden;
 }
@@ -663,11 +664,20 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 10px;
+  margin-left: 10px;
   z-index: 1;
 
 
+}
+
+@media (max-width: 768px) {
+  .container-fluid {
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
 
 .row {
@@ -13221,5 +13231,448 @@ textarea.form-control {
   .admin-login button {
     padding: 8px;
     font-size: 0.7rem;
+  }
+}
+
+/* AdminDashboard.css */
+.admin-dashboard {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.admin-dashboard button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-dashboard button:hover {
+  background-color: #0056b3;
+}
+
+.add-pizza,
+.edit-pizza {
+  margin-bottom: 20px;
+}
+
+.add-pizza h3,
+.edit-pizza h3 {
+  margin-bottom: 10px;
+}
+
+.add-pizza form,
+.edit-pizza form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-pizza input,
+.edit-pizza input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pizza-list h3 {
+  margin-bottom: 10px;
+}
+
+.pizza-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pizza-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.pizza-list li .textContainer {
+  flex-grow: 1;
+  margin-right: 10px;
+  /* Add some space between text and buttons */
+}
+
+.pizza-list li .textContainer img {
+  max-width: 100px;
+  /* Set a maximum width for the image */
+  max-height: 100px;
+  /* Set a maximum height for the image */
+  object-fit: cover;
+  /* Ensure the image scales proportionally */
+  margin-top: 10px;
+  /* Add some space above the image */
+  border: 5px solid #000;
+  border-radius: 50px;
+}
+
+.pizza-list li .btnContainer {
+  display: flex;
+  gap: 5px;
+  /* Adjust the gap between buttons */
+}
+
+.pizza-list li .textContainer h4,
+.pizza-list li .textContainer p {
+  font-weight: bold;
+  color: #333;
+  /* Ensure the text color is visible */
+}
+
+.pizza-list li button {
+  margin-left: 0;
+  /* Remove margin-left to use gap instead */
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: orange;
+}
+
+
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-content input,
+.modal-content textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-content button {
+  padding: 10px;
+  background-color: #bd2130;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.modal-content button:hover {
+  background-color: #000;
+}
+
+textarea {
+  margin-bottom: 15px;
+}
+
+.imgPizza {
+  margin-left: "20px";
+  margin-bottom: "20px";
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.customsa-file-input {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  margin-bottom: 10px;
+  line-height: 30px;
+  /* Vertically center the text */
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.customsa-file-input:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.customsa-file-input:active {
+  background-color: #004494;
+  transform: scale(1);
+}
+
+.file-name {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+
+.file-name::before {
+  content: "Selected File: ";
+  font-weight: bold;
+  color: #007bff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+.modal-body {
+  padding-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-body {
+  padding-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.divAdminDashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-pizza-button,
+.logout-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .divAdminDashboard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-pizza-button,
+  .logout-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .logout-button {
+    margin-bottom: 0;
   }
 }

@@ -1,7 +1,7 @@
 // src/data/data.js
 export const pizzaData = [
   {
-    id: 1,
+    _id: 1,
     name: "Italian Pizza",
     price: 12.9,
     image: "images/pizza-1.jpg",
@@ -9,7 +9,7 @@ export const pizzaData = [
       "Italian pizza: thin, crispy crust, fresh ingredients, rich tomato sauce.",
   },
   {
-    id: 2,
+    _id: 2,
     name: "Greek Pizza",
     price: 13.9,
     image: "images/pizza-2.jpg",
@@ -17,7 +17,7 @@ export const pizzaData = [
       "Greek pizza: thick, chewy crust, tangy feta, Mediterranean herbs, vibrant.",
   },
   {
-    id: 3,
+    _id: 3,
     name: "Caucasian Pizza",
     price: 11.9,
     image: "images/pizza-3.jpg",
@@ -25,7 +25,7 @@ export const pizzaData = [
       "Caucasian pizza: soft, airy crust, rich cheese blend, savory meat toppings.",
   },
   {
-    id: 4,
+    _id: 4,
     name: "American Pizza",
     price: 14.9,
     image: "images/pizza-4.jpg",
@@ -33,7 +33,7 @@ export const pizzaData = [
       "American pizza: thick crust, loaded cheese, bold toppings, hearty flavor.",
   },
   {
-    id: 5,
+    _id: 5,
     name: "Tomatoe Pie",
     price: 10.9,
     image: "images/pizza-5.jpg",
@@ -41,7 +41,7 @@ export const pizzaData = [
       "Tomato pie: focaccia-like crust, thick tomato sauce, light cheese sprinkle.",
   },
   {
-    id: 6,
+    _id: 6,
     name: "Margherita",
     price: 9.9,
     image: "images/pizza-6.jpg",
@@ -49,7 +49,7 @@ export const pizzaData = [
       "Margherita: thin crust, fresh mozzarella, vibrant tomatoes, fragrant basil.",
   },
   {
-    id: 7,
+    _id: 7,
     name: "Hawaiian Pizza",
     price: 13.0,
     image: "images/pizza-7.jpg",
@@ -57,7 +57,7 @@ export const pizzaData = [
       "Hawaiian pizza: sweet pineapple, savory ham, melted cheese, tangy tomato sauce.",
   },
   {
-    id: 8,
+    _id: 8,
     name: "Bacon Crispy Thins",
     price: 12.9,
     image: "images/pizza-8.jpg",
@@ -68,7 +68,7 @@ export const pizzaData = [
 
 export const drinkData = [
   {
-    id: 9,
+    _id: 9,
     name: "Lemonade Juice",
     price: 8.9,
     image: "images/drink-1.jpg",
@@ -76,7 +76,7 @@ export const drinkData = [
       "Refreshing lemonade juice, made from freshly squeezed lemons.",
   },
   {
-    id: 10,
+    _id: 10,
     name: "Raspberry Drink",
     price: 7.9,
     image: "images/drink-2.jpg",
@@ -84,7 +84,7 @@ export const drinkData = [
       "Vibrant raspberry drink, sweet and slightly tart, bursting with berry.",
   },
   {
-    id: 11,
+    _id: 11,
     name: "Cocktail",
     price: 8.9,
     image: "images/drink-3.jpg",
@@ -95,7 +95,7 @@ export const drinkData = [
 
 export const burgerData = [
   {
-    id: 12,
+    _id: 12,
     name: "Small Burger",
     price: 8.9,
     image: "images/burger-1.jpg",
@@ -103,7 +103,7 @@ export const burgerData = [
       "Mini burger with soft bun, fresh veggies, melted cheese, juicy .",
   },
   {
-    id: 13,
+    _id: 13,
     name: "Middle Burger",
     price: 10.9,
     image: "images/burger-2.jpg",
@@ -111,7 +111,7 @@ export const burgerData = [
       "Tasty mid-size burger with soft bun, juicy beef, crisp veggies.",
   },
   {
-    id: 14,
+    _id: 14,
     name: "Big Burger",
     price: 12.9,
     image: "images/burger-3.jpg",
@@ -122,7 +122,7 @@ export const burgerData = [
 
 export const pastaData = [
   {
-    id: 15,
+    _id: 15,
     name: "Italiniti",
     price: 12.9,
     image: "images/pasta-1.jpg",
@@ -130,7 +130,7 @@ export const pastaData = [
       "Delicious pasta with rich sauce, fresh ingredients, and perfect seasoning.",
   },
   {
-    id: 16,
+    _id: 16,
     name: "Italincia",
     price: 10.9,
     image: "images/pasta-2.jpg",
@@ -138,7 +138,7 @@ export const pastaData = [
       "Savory pasta with creamy sauce, tender noodles, and aromatic herbs.",
   },
   {
-    id: 17,
+    _id: 17,
     name: "Italiochela",
     price: 11.9,
     image: "images/pasta-3.jpg",

@@ -1,7 +1,33 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useRef, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Navbar = () => {
+    const cartLength = useSelector((state) => state.cart.cart.length);
+    const collapseRef = useRef(null);
+
+    const handleNavLinkClick = () => {
+        if (collapseRef.current) {
+            const collapseElement = new window.bootstrap.Collapse(collapseRef.current);
+            collapseElement.hide();
+        }
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (collapseRef.current && collapseRef.current.classList.contains('show')) {
+                const collapseElement = new window.bootstrap.Collapse(collapseRef.current);
+                collapseElement.hide();
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <nav
             className="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
@@ -25,37 +51,45 @@ const Navbar = () => {
                 >
                     <span className="oi oi-menu" /> Menu
                 </button>
-                <div className="collapse navbar-collapse" id="ftco-nav">
+                <div className="collapse navbar-collapse" id="ftco-nav" ref={collapseRef}>
                     <ul className="navbar-nav ml-auto">
-                        <li className="nav-item active">
-                            <Link to="/" className="nav-link">
+                        <li className="nav-item">
+                            <NavLink to="/" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
                                 Home
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="menu.html" className="nav-link">
+                            <NavLink to="/menu" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
                                 Menu
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="services.html" className="nav-link">
+                            <NavLink to="/services" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
                                 Services
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="blog.html" className="nav-link">
+                            <NavLink to="/blog" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
                                 Blog
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="about.html" className="nav-link">
+                            <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
                                 About
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="nav-item">
-                            <Link to="contact.html" className="nav-link">
+                            <NavLink to="/contact" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
                                 Contact
-                            </Link>
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/cart" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")} onClick={handleNavLinkClick}>
+                                <i className="fas fa-shopping-cart"></i> Cart
+                                {cartLength > 0 && (
+                                    <span className="badge">{cartLength}</span>
+                                )}
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

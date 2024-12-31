@@ -1,17 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import instance from '../axios';
 
 const AdminLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const adminInfo = localStorage.getItem('adminInfo');
+        if (adminInfo) {
+            navigate('/admin/dashboard');
+        } else {
+            setLoading(false);
+        }
+    }, [navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
+
             const response = await instance.post('/admin/login', { username, password });
             localStorage.setItem('adminInfo', JSON.stringify(response.data));
 
@@ -25,7 +35,9 @@ const AdminLogin = () => {
             }
 
         }
-
+        if (loading) {
+            return <div>Loading...</div>;
+        }
     }
 
     return (

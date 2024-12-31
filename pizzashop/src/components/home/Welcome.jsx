@@ -5,7 +5,7 @@ const Welcome = () => (
         <div data-aos="fade-up" className="one-half img" style={{ backgroundImage: 'url(images/about.jpg)' }}></div>
         <div className="one-half ftco-animate">
             <div className="heading-section ftco-animate">
-                <h2 className="mb-4">Welcome to <span className="flaticon-pizza">Pizza Shop</span> </h2>
+                <h2 className="mb-4">Welcome to Pizza Sh<span className="flaticon-pizza"></span>p </h2>
             </div>
             <div >
                 <p>

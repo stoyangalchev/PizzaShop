@@ -1,8 +1,35 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { CountUp } from "countup.js";
+import AOS from "aos";
 import "aos/dist/aos.css";
-
+import "/public/css/flaticon.css";
 const Status = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            easing: "slide",
+        });
+
+        const options = {
+            duration: 2,
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+        };
+
+        const counters = document.querySelectorAll('.number');
+        counters.forEach(counter => {
+            const target = counter.getAttribute('data-number');
+            const countUp = new CountUp(counter, target, options);
+            if (!countUp.error) {
+                countUp.start();
+            } else {
+                console.error(countUp.error);
+            }
+        });
+    }, []);
+
     return (
         <section
             className="ftco-counter ftco-bg-dark img"

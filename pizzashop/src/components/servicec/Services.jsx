@@ -5,7 +5,7 @@ import 'owl.carousel';
 
 const OurMenu = () => {
     useEffect(() => {
-        console.log("OurMenu component mounted");
+
 
         // Initialize Owl Carousel
         const $ = window.jQuery;
@@ -29,7 +29,7 @@ const OurMenu = () => {
         }
 
         return () => {
-            console.log("OurMenu component unmounted");
+
             // Destroy Owl Carousel instance to prevent issues on reinitialization
             if ($ && $.fn.owlCarousel) {
                 $('.home-slider').trigger('destroy.owl.carousel');
@@ -38,20 +38,18 @@ const OurMenu = () => {
     }, []);
 
     return (
-        <section className="home-slider owl-carousel img" style={{ backgroundImage: "url(images/bg_2223.jpg)" }}>
+        <section className="home-slider owl-carousel img" style={{ backgroundImage: "url(images/bg_7.jpg)" }}>
             <div className="slider-item" >
 
                 <div className="container">
                     <div className="row slider-text justify-content-center align-items-center">
                         <div className="col-md-7 col-sm-12 text-center ftco-animate">
-                            <h1 className="mb-3 mt-5 bread">Services</h1>
+                            <h1 className="bread mb-3 mt-5 " >Services</h1>
                             <p className="breadcrumbs">
                                 <span className="mr-2">
                                     <Link to="/">Home</Link>
                                 </span>
-                                <span>
-                                    <Link to="/todo">Services</Link>
-                                </span>
+
                             </p>
                         </div>
                     </div>
