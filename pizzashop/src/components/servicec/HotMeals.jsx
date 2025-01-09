@@ -50,8 +50,10 @@ const HotMeals = () => {
                                 <div className="text">
                                     <h3><Link to="#">{pizza.name}</Link></h3>
                                     <p>{pizza.description}</p>
-                                    <p className="price"><span>${pizza.price.toFixed(2)}</span></p>
-                                    <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderPizza(event, pizza)}>Add to cart</Link></p>
+                                    <div className="bottom-content">
+                                        <p className="price"><span>${pizza.price.toFixed(2)}</span></p>
+                                        <p><Link to="#" className="btn btn-white btn-outline-white" onClick={(event) => handleOrderPizza(event, pizza)}>Add to cart</Link></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -18,39 +18,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         fetchPizzas();
     }, []);
-    const handleAddPizza = async (e) => {
-        e.preventDefault();
-        try {
-            const adminInfo = JSON.parse(localStorage.getItem('adminInfo'));
-            const token = adminInfo ? adminInfo.token : null;
-            if (!token) {
-                throw new Error('No token found');
-            }
-
-            console.log('Adding pizza:', newPizza);
-
-            const response = await instance.post('/pizzas/addpizzas', newPizza, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-
-            if (response.data && Object.keys(response.data).length > 0) {
-
-                await fetchPizzas();
-            } else {
-                console.error('Response data is empty or invalid');
-            }
-
-            setNewPizza({ name: '', price: '', category: '', image: '', description: '' });
-            setFileName('');
-            fileInputRef.current.value = '';
-            setAddError('');
-        } catch (error) {
-            console.error('Failed to add pizza:', error);
-            setAddError('Failed to add pizza');
-        }
-    };
+  
 
     const handleEditPizza = async (e) => {
         e.preventDefault();
@@ -142,9 +110,9 @@ const AdminDashboard = () => {
 
             <div className='divAdminDashboard'>
                 <Link to="/admin/dashboard/addpizza">
-                    <button >Add New Pizza</button>
+                    <button className="add-pizza-button">Add New Pizza</button>
                 </Link>
-                <button onClick={logout} style={{ marginLeft: "5px" }}>Logout</button>
+                <button onClick={logout} className="logout-button">Logout</button>
             </div>
 
             {editPizza && (
