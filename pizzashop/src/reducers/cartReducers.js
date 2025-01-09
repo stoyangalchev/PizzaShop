@@ -33,14 +33,12 @@ const cartReducer = (state = initialState, action) => {
       );
       let updatedCart;
       if (itemExists) {
-        
         updatedCart = state.cart.map((item) =>
           item._id === action.payload._id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-      
         updatedCart = [...state.cart, { ...action.payload, quantity: 1 }];
       }
       localStorage.setItem("cart", JSON.stringify(updatedCart));
@@ -56,6 +54,12 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: filteredCart,
+      };
+    case "CLEAR_CART":
+      localStorage.removeItem("cart");
+      return {
+        ...state,
+        cart: [],
       };
     default:
       return state;

@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { increaseQuantity, decreaseQuantity, removeFromCart } from '../../actions/cartActions';
+import { increaseQuantity, decreaseQuantity, removeFromCart, clearCart } from '../../actions/cartActions';
+
 
 const Cart = () => {
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart.cart);
-
-    console.log(cart);
+    const [showModal, setShowModal] = useState(false);
+    const [purchaseDetails, setPurchaseDetails] = useState(null);
 
     const handlePurchase = () => {
         const purchasedItems = cart.map(item => ({
@@ -15,15 +16,17 @@ const Cart = () => {
             name: item.name,
             quantity: item.quantity,
             price: item.price,
-            total: item.price * item.quantity
+            total: item.price * item.quantity,
+            image: item.image // Include the image URL
         }));
         const totalAmount = purchasedItems.reduce((total, item) => total + item.total, 0);
-        const purchaseDetails = {
+        const details = {
             items: purchasedItems,
             totalAmount: totalAmount
         };
-        console.log('Purchase Details:', purchaseDetails);
-        alert(`Purchased ${cart.length} pizza(s) for a total of $${totalAmount.toFixed(2)}`);
+        setPurchaseDetails(details);
+        setShowModal(true);
+        dispatch(clearCart()); // Clear the cart after purchase
     };
 
     const handleIncrease = (_id) => {
@@ -80,9 +83,41 @@ const Cart = () => {
                     <h3>Total Price: ${totalPrice.toFixed(2)}</h3>
                 </div>
                 <div className="row justify-content-center">
-                    <button className="btn btn-primary mt-3" onClick={handlePurchase}>Purchase</button>
+                    {cart.length > 0 && (
+                        <button
+                            className="btn btn-primary mt-3"
+                            onClick={handlePurchase}
+                        >
+                            Purchase
+                        </button>
+                    )}
                 </div>
             </div>
+
+            {showModal && (
+                <div className="custom-modal" style={{ display: 'block' }}>
+                    <div className="custom-modal-content">
+                        <span className="custom-close" onClick={() => setShowModal(false)}>&times;</span>
+                        <i className="fas fa-check-circle custom-checkmark"></i> {/* Add the checkmark icon */}
+                        <h2>Purchase Confirmation</h2>
+                        {purchaseDetails && (
+                            <>
+                                <hr></hr>
+                                <ul>
+                                    {purchaseDetails.items.map((item, index) => (
+                                        <li key={index}>
+                                            <img src={item.image} alt={item.name} style={{ width: '50px', height: '50px', marginRight: '10px' }} />
+                                            <p> {item.name} - {item.quantity} x <span style={{ color: "orange" }}>${item.price.toFixed(2)}</span></p>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <hr></hr>
+                                <p>Total Purchase - <span style={{ color: "green", border: "4px,solid green",borderRadius:"50px",padding:"5px" }}>${purchaseDetails.totalAmount.toFixed(2)}</span></p>
+                            </>
+                        )}
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
