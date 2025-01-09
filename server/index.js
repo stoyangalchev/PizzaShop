@@ -38,6 +38,9 @@ app.use("/api/pizzas", pizzaRoute);
 app.use("/api/contact", contactRoute);
 app.use("/api/admin", adminRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Hello, world!");
+});
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
