@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000/api", // Set your base URL here
+  baseURL: "https://pizzashop-218v.onrender.com/api", // Set your base URL here
 });
 
 export default instance;

@@ -5,7 +5,7 @@ export const sendContactInfo = (contactData) => async (dispatch) => {
     dispatch({ type: "CONTACT_REQUEST" });
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/contact/send",
+      "https://pizzashop-218v.onrender.com/api/contact/send",
       contactData
     );
 
