@@ -19,7 +19,11 @@ app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://pizzashop-218v.onrender.com"], // Allow requests from this origin
+    origin: [
+      "http://localhost:5173",
+      "https://pizzashop-218v.onrender.com",
+      "https://pizzashop-one.vercel.app",
+    ], // Allow requests from this origin
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true, // Allow cookies to be sent
     optionsSuccessStatus: 204,
