@@ -4,6 +4,7 @@ import instance from '../axios';
 import useAuth from '../hooks/useAuth';
 import useLogout from './adminHooks/useLogout';
 import useFetchPizzas from './adminHooks/useFetchPizzas'; // Import the custom hook
+import LoadingSpinner from '../components/shared/LoadingSpinner'; // Import the LoadingSpinner component
 
 const AdminDashboard = () => {
     const loading = useAuth();
@@ -13,15 +14,17 @@ const AdminDashboard = () => {
     const [editPizza, setEditPizza] = useState(null);
     const [addError, setAddError] = useState('');
     const [fileName, setFileName] = useState(''); // State to keep track of the file name
+    const [loadingSpinner, setLoadingSpinner] = useState(false); // State for loading spinner
     const fileInputRef = useRef(null);
 
     useEffect(() => {
         fetchPizzas();
     }, []);
-  
+
 
     const handleEditPizza = async (e) => {
         e.preventDefault();
+        setLoadingSpinner(true);
         try {
             const adminInfo = JSON.parse(localStorage.getItem('adminInfo'));
             const token = adminInfo ? adminInfo.token : null;
@@ -50,10 +53,13 @@ const AdminDashboard = () => {
         } catch (error) {
             console.error('Failed to edit pizza:', error);
             setAddError('Failed to edit pizza');
+        } finally {
+            setLoadingSpinner(false);
         }
     };
 
     const handleDeletePizza = async (_id) => {
+        setLoadingSpinner(true);
         try {
             const adminInfo = JSON.parse(localStorage.getItem('adminInfo'));
             const token = adminInfo ? adminInfo.token : null;
@@ -75,6 +81,8 @@ const AdminDashboard = () => {
         } catch (error) {
             console.error('Failed to delete pizza:', error);
             setAddError('Failed to delete pizza');
+        } finally {
+            setLoadingSpinner(false);
         }
     };
 
@@ -105,6 +113,7 @@ const AdminDashboard = () => {
 
     return (
         <div className="admin-dashboard">
+            <LoadingSpinner show={loadingSpinner} /> {/* Add the LoadingSpinner component */}
 
             <h2>Admin Dashboard</h2>
 
