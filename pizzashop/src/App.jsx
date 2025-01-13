@@ -29,6 +29,8 @@ import ErrorBoundary from './components/shared/ErrorBoundary';
 import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
 import AddPizza from './admin/AddPizza';
+import ScrollArrow from './components/shared/ScrollArrow';
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -43,6 +45,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollArrow />
       <ScrollToTop />
       <Navbar />
       <ErrorBoundary>

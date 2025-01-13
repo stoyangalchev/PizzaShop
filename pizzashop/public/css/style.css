@@ -13823,3 +13823,25 @@ textarea {
   text-align: center;
   margin-bottom: 20px;
 }
+
+.scroll-arrow {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+
+.scroll-arrow:hover {
+  background-color: #555;
+}
