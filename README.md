@@ -4,9 +4,9 @@
 
 ## 📸 Screenshots
 
-![App Screenshot](./screenshots/Home%20Page(User).png)
+![App Screenshot](./pizzashop/public/images/Screenshot%202025-01-13%20at%2023.05.22.png)
 
-# Deployment 🌍 -> [Click this link](https://pizza-shop.vercel.app).
+# Deployment 🌍 -> [Click this link](https://pizzashop-one.vercel.app/).
 
 - **Client deployed to Vercel**
 - **Server deployed to Render**
