@@ -69,7 +69,7 @@ const Overlay = () => {
                         <div className="col-md-7 col-sm-12 text-center ftco-animate">
                             <span className="subheading">Welcome</span>
                             <h1 className="mb-4">We cooked your desired Pizza Recipe</h1>
-                            <p className="mb-4 mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+     
                         </div>
                     </div>
                 </div>
