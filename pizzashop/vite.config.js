@@ -1,4 +1,3 @@
-// vite.config.js
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
@@ -11,5 +10,8 @@ export default defineConfig({
         // Additional configuration options for SCSS
       },
     },
+  },
+  server: {
+    open: true, // Automatically open the browser on server start
   },
 });
