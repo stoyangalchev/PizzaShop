@@ -30,6 +30,8 @@ import AdminLogin from './admin/AdminLogin'
 import AdminDashboard from './admin/AdminDashboard'
 import AddPizza from './admin/AddPizza';
 import ScrollArrow from './components/shared/ScrollArrow';
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
 
 function App() {
   useEffect(() => {
@@ -39,7 +41,7 @@ function App() {
     });
 
 
-
+    injectSpeedInsights();
 
   }, []);
 
