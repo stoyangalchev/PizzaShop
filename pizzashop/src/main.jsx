@@ -3,14 +3,14 @@ import { Provider } from 'react-redux';
 import React from 'react';
 import App from './App';
 import store from './store/store';
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+injectSpeedInsights();
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <Provider store={store}>
-    <SpeedInsights>
-      <App />
-    </SpeedInsights>
+    <App />
   </Provider>
 );
