@@ -21,10 +21,13 @@
 - **Happy Clients Page**: Read reviews from satisfied customers.
 - **Responsive Design**: Experience a fully optimized design across devices.
 
-## To log in and test the app, Register to app:
+## Admin Panel to login and add pizza :
 
-- **Username**: `e.g. johndoe`
-- **Password**: `e.g. *password*`
+- **Link to admin hidden menu**: `https://pizzashop-one.vercel.app/admin/login`- 
+It goes you to admin dashboard and there you can add pizza, delete, edit  and manage it!
+
+- **Username**: `admin`
+- **Password**: `123456789`
 
 ## 🛠️ Technologies Used
 
